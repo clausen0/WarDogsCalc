@@ -1,4 +1,4 @@
-package Mortar
+package main
 
 type Mortar struct {
 	mortarX float64
