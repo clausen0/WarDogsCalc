@@ -1,8 +1,8 @@
 package Mortar
 
-type Morter struct {
-	morterX float64
-	morterY float64
+type Mortar struct {
+	mortarX float64
+	mortarY float64
 
 	hitX float64
 	hitY float64
