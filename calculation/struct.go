@@ -7,6 +7,7 @@ type Mortar struct {
 	hitX float64
 	hitY float64
 
-	angle  float64
-	degree float64
+	angle    float64
+	degree   float64
+	distance float64
 }
