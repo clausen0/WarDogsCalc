@@ -1,0 +1,14 @@
+.mortar-button {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: #b0c0bb;
+    color: white;
+    text-decoration: none;
+    border-radius: 5px;
+    text-align: center;
+    font-weight: bold;
+}
+
+.mortar-button:hover {
+    background-color: #a0b0aa;
+}
