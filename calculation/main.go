@@ -8,6 +8,8 @@ import (
 
 func main() {
 
+	//test()
+
 	http.HandleFunc("/calculate", CalculateHandler)
 
 	fmt.Println("Serveren kjører på http://localhost:8080")
