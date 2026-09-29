@@ -3,6 +3,8 @@ This is a passion-project made by three students at NTNU Gjøvik in 2026. We enj
 
 ## Team Members
 Sander Clausen
+
 Oliver Buøen
+
 Alvar Aasgaard
 
