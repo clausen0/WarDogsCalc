@@ -41,13 +41,26 @@
             const targetX = parseFloat(document.getElementById('targetX').value);
             const targetY = parseFloat(document.getElementById('targetY').value);
 
-            // Perform the calculation
-            const distance = Math.sqrt(Math.pow(targetX - morterX, 2) + Math.pow(targetY - morterY, 2));
-            const angle = Math.atan2(targetY - morterY, targetX - morterX) * 180 / Math.PI;
+            try {
+                const params = new URLSearchParams({
+                    mx: morterX,
+                    my: morterY,
+                    hx: targetX,
+                    hy: targetY
+                });
+                const response = await fetch(`/calculate?${params}`);
 
-            // Display the result
-            document.getElementById('resDistance').textContent = distance.toFixed(2);
-            document.getElementById('resAngle').textContent = angle.toFixed(2);
+                if (!response.ok) {
+                    throw new Error(`Serverfeil: ${response.status}`);
+                }
+
+                const result = await response.json();
+                document.getElementById('resDistance').textContent = result.distance.toFixed(2);
+                document.getElementById('resAngle').textContent = result.degree.toFixed(2);
+            } catch (error) {
+                document.getElementById('resDistance').textContent = 'Kunne ikke beregne';
+                document.getElementById('resAngle').textContent = error.message;
+            }
         });
     </script>
 </body>

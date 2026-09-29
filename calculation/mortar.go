@@ -14,6 +14,9 @@ func (m *Mortar) CalculateCalculations() {
 	m.distance = math.Hypot(dx, dy)
 	m.angle = math.Atan2(dy, dx)
 	m.degree = m.angle * (180 / math.Pi)
+	if m.degree < 0 {
+		m.degree += 360
+	}
 }
 
 func NewMortar(mx, my, hx, hy float64) Mortar {
