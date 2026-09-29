@@ -8,6 +8,8 @@ import (
 
 func main() {
 
+	//test()
+
 	http.HandleFunc("/calculate", CalculateHandler)
 	http.Handle("/", http.FileServer(http.Dir("pages/HTML")))
 
