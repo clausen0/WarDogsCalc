@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Morter Calculation</h1>
+
+    <form id="mortercalc">
+         <h3>Morter position</h3>
+         <label for="morterX">Morter X:</label>
+         <input type="number" id="morterX" name="morterX" step="any" required>
+
+        <label for="morterY">Morter Y:</label>
+        <input type="number" id="morterY" name="morterY" step="any" required>
+
+        <h3>Target position</h3>
+        <label for="targetX">Target X:</label>
+        <input type="number" id="targetX" name="targetX" step="any" required>
+
+        <label for="targetY">Target Y:</label>
+        <input type="number" id="targetY" name="targetY" step="any" required>
+
+
+        <button type="submit">Calculate</button>
+    </form>
+
+    <h3>Result</h3>
+    <p><strong>Avstand:</strong><span id="resDistance">-</span></p>
+    <p><strong>Vinkel:</strong><span id="resAngle">-</span></p>
+
+    <script>
+        document.getElementById('mortercalc').addEventListener('submit', async function(event)
+        {
+            event.preventDefault();
+
+            const morterX = parseFloat(document.getElementById('morterX').value);
+            const morterY = parseFloat(document.getElementById('morterY').value);
+            const targetX = parseFloat(document.getElementById('targetX').value);
+            const targetY = parseFloat(document.getElementById('targetY').value);
+
+            // Perform the calculation
+            const distance = Math.sqrt(Math.pow(targetX - morterX, 2) + Math.pow(targetY - morterY, 2));
+            const angle = Math.atan2(targetY - morterY, targetX - morterX) * 180 / Math.PI;
+
+            // Display the result
+            document.getElementById('resDistance').textContent = distance.toFixed(2);
+            document.getElementById('resAngle').textContent = angle.toFixed(2);
+        });
+    </script>
+</body>
+</html>
